@@ -1,18 +1,41 @@
 # Простейшая сборка для Confluent JDBC Connector со schema registry и AVRO Converter
-_
 
-Для запуска выполни команды
+
+## Команды docker
 
 **Запуск docker-compose.yaml**
 ```bash
 docker compose up -d
 ```
-Регистрация коннектора
+
+**Проверка доступных коннекторов**
+```bash
+curl -s http://localhost:8083/connector-plugins | jq
+```
+
+**Список зарегистрированных коннекторов**
+```bash
+curl -s http://localhost:8083/connectors | jq
+```
+
+**Регистрация коннектора**
 ```bash
 curl -X POST -H "Content-Type: application/json" --data @connectors/source_connector.json http://localhost:8083/connectors
 ```
 
-**Для БД (pg_source)**
+**Статус коннектора**
+```bash
+curl -s http://localhost:8083/connectors/jdbc-source-postgres/status | jq
+```
+
+**Удаление коннектора**
+```bash
+curl -X DELETE http://localhost:8083/connectors/jdbc-source-postgres
+```
+
+
+
+## Для БД (pg_source)
 ```sql
 create table t_orders
 (
