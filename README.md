@@ -1,4 +1,4 @@
-#Простейшая сборка для Confluent JDBC Connector со schema registry и AVRO Converter
+# Простейшая сборка для Confluent JDBC Connector со schema registry и AVRO Converter
 _
 Для запуска выполни команды
 
