@@ -33,7 +33,8 @@ curl -s http://localhost:8083/connectors/jdbc-source-postgres/status | jq
 curl -X DELETE http://localhost:8083/connectors/jdbc-source-postgres
 ```
 
-
+Kafka UI доступна по адресу
+http://localhost:8280
 
 ## Для БД (pg_source)
 ```sql
