@@ -67,4 +67,13 @@ FROM generate_series(1, 1000000);
 
 ```
 
+На pg_dest создаем таблицу с именем топика
+```sql
+create table pg_source_t_orders
+(
+	id INTEGER,
+	num varchar(100),
+	dt date
+);
+```
 
