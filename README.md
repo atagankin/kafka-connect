@@ -85,3 +85,11 @@ create table pg_source_t_orders
 При запуске SINK коннектора, все сообщения, которые есть в топике будут обработаны. И тогда в случае, если **insert.mode**:
 1. insert.mode = insert. Записи обязательно будут вставлены в целевую таблицу. Если уже сделан init, это приведет к их задвоению.
 2. insert.mode = upsert. При накате необработанных сообщений будет произведена операция UPDATE, что не должно повлиять на корректность данных. Также этот режим весьма успешно помогает справляться с дублями, связанными с гарантиями доставки.
+
+## Иструкция по запуску.
+1. docker compose up -d
+2. Создать таблицу в pg_source, наполнить данными
+3. curl -X POST -H "Content-Type: application/json" --data @connectors/source_connector.json http://localhost:8083/connectors
+4. Дождаться регистрации source-коннектора (топик для t_orders появится в kafka)
+5. curl -X POST -H "Content-Type: application/json" --data @connectors/sink_connector.json http://localhost:8083/connectors
+6. Можно наполнять source и следить за передачей данных, отключать сервисы и т.д.
