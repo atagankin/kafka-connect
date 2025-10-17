@@ -9,7 +9,7 @@
     "fields.whitelist": "id,num,dt",
     "auto.create": "false",
     "auto.evolve": "false",
-    "insert.mode": "insert",
+    "insert.mode": "upsert",
     "pk.mode": "record_value",
     "pk.fields": "id",
     "tasks.max": "1",
